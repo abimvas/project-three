@@ -21,6 +21,8 @@ http://berkeleyearth.org/about/
 https://www.ncdc.noaa.gov/ibtracs/index.php?name=wmo-data
 
 ## 6. Rough Breakdown of Tasks ##
-Find API
+Find API/CSV of weather data from previous years
+
 Display visualizations 
+
 Use ML to predict future weather trends
