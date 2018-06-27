@@ -10,11 +10,14 @@ Finding trends in weather over the courde of many years, and predicting weather 
 
 ## 4. Research Questions to Answer: ##
 Is there an observable weather trend over an "x" number of years? 
+
 Are there any severe weather trends?
+
 How accurate are the predictions (will looking at weather from 100 years predict weather from 50 years later)?
 
 ## 5. Data sources or Data Sets to be Used: ##
 http://berkeleyearth.org/about/
+
 https://www.ncdc.noaa.gov/ibtracs/index.php?name=wmo-data
 
 ## 6. Rough Breakdown of Tasks ##
