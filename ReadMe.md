@@ -1,4 +1,4 @@
-# Project Three #
+# Project Three
 ## 1. Title: ##
 Predicting Weather Trends
 
