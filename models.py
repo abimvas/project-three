@@ -11,7 +11,6 @@ base_path = path.abspath(path.dirname(__file__))
 
 # Define a base model for other database tables to inherit
 class Base(db.Model):
-	# __table_args__ = {"autoload": True, "autoload_with": db.engine}
 	__abstract__  = True
 
 	id = db.Column(db.Integer, primary_key=True)
@@ -31,8 +30,8 @@ class Temperature(Base):
 	year = db.Column(db.Integer)
 	AverageTemperatureF = db.Column(db.Float)
 
-	# def __repr__(self):
-	# 	return '<Temperature %r>' % (self.AverageTemperatureF)
+	def __repr__(self):
+		return '<Temperature %r>' % (self.AverageTemperatureF)
 
 def Temps_Since_1800(csvfile, db_uri):
 	engine = create_engine(db_uri, echo=False)
@@ -49,3 +48,4 @@ def Temps_Since_1800(csvfile, db_uri):
 		except:
 			trans.rollback()
 			raise
+		

@@ -48,27 +48,28 @@ def index():
 
 @app.route("/api/temperatures")
 def temperatures():
-    # q = [Temperature.id, Temperature.Country, Temperature.year, Temperature.AverageTemperatureF]
-    avgTemps = []
-    results = db.session.query(Temperature).all()
+    q = [Temperature.id, Temperature.Country, Temperature.year, Temperature.AverageTemperatureF]
+    # avgTemps = []
+    results = db.session.query(*q).all()
 
-    for result in results:
-        temp_dict = {}
-        for col in Temperature.__table__.columns:
-            d = getattr(result, col.name)
-            if isinstance(d, decimal.Decimal): d = float(d);
-            temp_dict[col.name] = d
-        avgTemps.append(temp_dict)
-    Temps = list(np.ravel(avgTemps))
-    return jsonify(Temps)
+    # for result in results:
+    #     temp_dict = {}
+    #     for col in Temperature.__table__.columns:
+    #         d = getattr(result, col.name)
+    #         if isinstance(d, decimal.Decimal): d = float(d);
+    #         temp_dict[col.name] = d
+    #     avgTemps.append(temp_dict)
+   
+    # return jsonify(Temps)
 
-     # cols = list(map(lambda x: x["name"], results.column_descriptions))
-     # cols = column_names(Temperature)
-    # avgTemps = {
- #        "data": [
- #            {col: getattr(row, col) for col in cols} for row in results.all()
- #        ]
- #    }
+    cols = list(map(lambda x: x["name"], results.column_descriptions))
+    # cols = column_names(Temperature)
+    avgTemps = {
+        "data": [
+            {col: getattr(row, col) for col in cols} for row in results.all()
+        ]
+    }
+    return jsonify(avgTemps)
      
 
 
