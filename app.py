@@ -48,10 +48,11 @@ def index():
 
 @app.route("/api/temperatures")
 def temperatures():
-    q = [Temperature.id, Temperature.Country, Temperature.year, Temperature.AverageTemperatureF]
+    q = [Temps_Since_1800.id, Temps_Since_1800.Country, Temps_Since_1800.year, Temps_Since_1800.AverageTemperatureF]
     # avgTemps = []
-    results = db.session.query(*q).all()
+    results = db.session.query(*q)
 
+    # print(results.all())
     # for result in results:
     #     temp_dict = {}
     #     for col in Temperature.__table__.columns:

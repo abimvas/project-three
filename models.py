@@ -34,7 +34,7 @@ class Temperature(Base):
 		return '<Temperature %r>' % (self.AverageTemperatureF)
 
 def Temps_Since_1800(csvfile, db_uri):
-	engine = create_engine(db_uri, echo=False)
+	engine = create_engine(db_uri, echo=True)
 	conn = engine.connect()
 	trans = conn.begin()
 	db.metadata.create_all(engine)
