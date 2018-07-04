@@ -23,12 +23,12 @@ function createMap(layers) {
   
     }};
 
-    map.addSource('earthquakes', {
+    map.addSource('hurricane', {
         type: 'geojson',
         data: 'earthquakes.geojson'
     });
     map.addLayer({
-        id: 'earthquakes',
+        id: 'hurricane',
         source: 'earthquakes',
         type: 'heatmap'
     });
