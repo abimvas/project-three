@@ -1,51 +1,82 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, func
 import csv
 from os import path
 from utils import fix_path
 from sqlalchemy.orm import Session
 from sqlalchemy.types import DECIMAL
+import pandas as pd
+
 
 db = SQLAlchemy()
+
 base_path = path.abspath(path.dirname(__file__))
+ 
 
 # Define a base model for other database tables to inherit
 class Base(db.Model):
-	__abstract__  = True
+    __abstract__  = True
 
-	id = db.Column(db.Integer, primary_key=True)
-	date_created = db.Column(db.Text, default=db.func.current_timestamp())
-	date_modified = db.Column(
-    	db.Text,
-    	default=db.func.current_timestamp(),
-    	onupdate=db.func.current_timestamp()
-	)
+    id = db.Column(db.Integer, primary_key=True)
+    date_created = db.Column(db.Text, default=db.func.current_timestamp())
+    date_modified = db.Column(
+        db.Text,
+        default=db.func.current_timestamp(),
+        onupdate=db.func.current_timestamp()
+    )
 
 class Temperature(Base):
 
-	__tablename__ = "temperatures"
+    __tablename__ = "temperatures"
 
-	id = db.Column(db.Integer, primary_key=True)
-	Country = db.Column(db.Text)
-	year = db.Column(db.Integer)
-	AverageTemperatureF = db.Column(db.Float)
+    id = db.Column(db.Integer, primary_key=True)
+    Country = db.Column(db.Text)
+    year = db.Column(db.Integer)
+    AverageTemperatureF = db.Column(db.Float)
 
-	def __repr__(self):
-		return '<Temperature %r>' % (self.AverageTemperatureF)
+    def __repr__(self):
+        return '<Temperature %r>' % (self.AverageTemperatureF)
+
+def get_data():
+    avgTemps = {}
+    q = [Temperature.id, Temperature.Country, Temperature.year, Temperature.AverageTemperatureF]
+    results = db.session.query(*q).all()
+    if len(results) > 0:
+       temps = pd.DataFrame(results, columns=['id','Country','year','AverageTemperatureF'])
+       avgTemps = temps.values.tolist()
+       print(avgTemps)
+    else:
+       print('no data')
+    
+    return avgTemps
+
+def temp_by_country():   
+    q = [Temperature.Country, Temperature.AverageTemperatureF]
+    results = db.session.query(*q, func.max(Temperature.AverageTemperatureF).label("High"),
+        func.min(Temperature.AverageTemperatureF).label("Low"),
+        (func.max(Temperature.AverageTemperatureF) - func.min(Temperature.AverageTemperatureF)).\
+        label("Difference")).group_by(Temperature.Country).all()
+    groupByCountry = {}
+    
+    if len(results) > 0:
+        grouped_temps = pd.DataFrame(results, columns=['Country','AverageTemperatureF','High','Low','Difference'])
+        groupByCountry = grouped_temps.values.tolist()
+        print(groupByCountry)
+
+    return groupByCountry
 
 def Temps_Since_1800(csvfile, db_uri):
-	engine = create_engine(db_uri, echo=True)
-	conn = engine.connect()
-	trans = conn.begin()
-	db.metadata.create_all(engine)
+    engine = create_engine(db_uri, echo=True)
+    conn = engine.connect()
+    trans = conn.begin()
+    db.metadata.create_all(engine)
 
-	with open(fix_path(base_path, csvfile), mode="r") as p:
-		csv_data = csv.DictReader(p)
-		try:
-			for row in csv_data:
-				conn.execute(Temperature.__table__.insert(), row)
-			trans.commit()
-		except:
-			trans.rollback()
-			raise
-		
+    with open(fix_path(base_path, csvfile), mode="r") as p:
+        csv_data = csv.DictReader(p)
+        try:
+            for row in csv_data:
+                conn.execute(Temperature.__table__.insert(), row)
+            trans.commit()
+        except:
+            trans.rollback()
+            raise

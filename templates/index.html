@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script rel="stylesheet" type="text/css" src="{{ url_for( 'static', filename="styles.css" ) }}"></script>
 
 <body>
   <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
@@ -50,7 +51,7 @@
           <a href="https://www.ncdc.noaa.gov/ibtracs/index.php?name=wmo-data">Berkeley Earth</a>
         </p>
         <div>
-          <p class="font-italic" style="font-size:0.9em">'Javier Lopez, Matt Shuff, Jordan Tata, Abigail Vasquez, Jasmine (Lo) Winata.</p>
+          <p class="font-italic" style="font-size:0.9em">Javier Lopez, Matt Shuff, Jordan Tata, Abigail Vasquez, Jasmine (Lo) Winata.</p>
         </div>
         
         <!-- <div style="margin-top:25px">
@@ -58,10 +59,27 @@
         </div> -->
       </div>
   </div>
+  <br>
+  <div class="dropdown">
+    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton">
+      Pick a Country
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <select class="dropdown-item" id="#countryName"></select>
+      <!-- <option value="None" selected="Selected"></option> -->
+    </div> 
+    </button>
+  </div>
 
-  <section class="section">
-      <table class="table">
-          <thead>
+  <div id="table"></div>
+  <div class="viz">
+    <div class="container">
+      <svg width="600" height="600"></svg>
+    </div>
+  </div>
+
+  <!-- <section class="section">
+      <table class="table"> -->
+          <!-- <thead>
               <tr>
                   {% for col in columns %}
                   <th>
@@ -81,8 +99,8 @@
               </tr>
               {% endfor %}
           </tbody>
-      </table>
-  </section>
+      </table> -->
+  <!-- </section> -->
 </head>
 
 

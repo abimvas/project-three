@@ -1,4 +1,5 @@
 from pathlib import Path
+from models import *
 
 def fix_path(base, file_path):
 
@@ -12,3 +13,7 @@ def column_names(TableClass):
     # names = {x.name: getattr(x,x.name) for x in TableClass.__table__.columns}
 
     return list(names)
+
+
+
+

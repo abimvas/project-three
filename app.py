@@ -1,11 +1,11 @@
-from flask import Flask, render_template, jsonify
-from models import db, Temperature, Temps_Since_1800
+from flask import Flask, render_template, jsonify, json
+from models import *
 from sqlalchemy.orm import Session
-from utils import column_names
+from utils import *
 from config import config
 import os
 import numpy as np
-
+import plotly
 
 #################################################
 # Application Config
@@ -39,40 +39,25 @@ def setup():
 @app.route("/")
 def index():
 
-    results = db.session.query(Temperature).filter(Temperature.Country != "").all()
-    cols = column_names(Temperature)
+    # results = db.session.query(Temperature).filter(Temperature.Country != "").all()
+    # cols = column_names(Temperature)
 
-    avgTemps = [{col: getattr(row, col) for col in cols} for row in results]
+    # avgTemps = [{col: getattr(row, col) for col in cols} for row in results]
 
-    return render_template("index.html", data=avgTemps, columns=cols)
+    # return render_template("index.html", data=avgTemps, columns=cols)
+    return render_template("index.html")
+
 
 @app.route("/api/temperatures")
 def temperatures():
-    q = [Temps_Since_1800.id, Temps_Since_1800.Country, Temps_Since_1800.year, Temps_Since_1800.AverageTemperatureF]
-    # avgTemps = []
-    results = db.session.query(*q)
+	
+	return jsonify(get_data())
 
-    # print(results.all())
-    # for result in results:
-    #     temp_dict = {}
-    #     for col in Temperature.__table__.columns:
-    #         d = getattr(result, col.name)
-    #         if isinstance(d, decimal.Decimal): d = float(d);
-    #         temp_dict[col.name] = d
-    #     avgTemps.append(temp_dict)
-   
-    # return jsonify(Temps)
+@app.route("/countries/<countryName>")
+def country_data(countryName):
 
-    cols = list(map(lambda x: x["name"], results.column_descriptions))
-    # cols = column_names(Temperature)
-    avgTemps = {
-        "data": [
-            {col: getattr(row, col) for col in cols} for row in results.all()
-        ]
-    }
-    return jsonify(avgTemps)
-     
+	return jsonify(temp_by_country()) 
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
