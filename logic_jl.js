@@ -57,24 +57,23 @@ var map = L.map("map", {
     zoom: 2,
     layers: Object.values(baseMaps)
 });
-satellite.addTo(map)
+// satellite.addTo(map)
 
 
-//  //Add layer control to map
-// L.control.layers(baseMaps, [outdoors], {
-//     collapsed: false
-// }).addTo(map);
+ //Add layer control to map
+L.control.layers(baseMaps, [outdoors], {
+    collapsed: false
+}).addTo(map);
 
 
-// //Create a marker layer (in the example done via a GeoJSON FeatureCollection)
-// var testlayer = L.geoJson(json);
-// var sliderControl = L.control.sliderControl({position: "topright", layer: testlayer});
+//Create a marker layer (in the example done via a GeoJSON FeatureCollection)
+var sliderControl = L.control.sliderControl({position: "topright", layer: lightMap});
 
-// //Make sure to add the slider to the map ;-)
-// map.addControl(sliderControl);
+//Make sure to add the slider to the map ;-)
+map.addControl(sliderControl);
 
-// //And initialize the slider
-// sliderControl.startSlider();
+//And initialize the slider
+sliderControl.startSlider();
 
 // var testlayer = L.geoJson(json);
 // var sliderControl = L.control.sliderControl({position: "topright", layer: testlayer});
