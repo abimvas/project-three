@@ -1,10 +1,13 @@
-var weather = []
+// var weather = final.csv
+// var hurricane = convertcsv-small.geojson
 
 // get data
 d3.csv("final.csv", function(data) {
-    createFeatures(data.features);
-    console.log(weather)
+    //createFeatures(data.features);
+    console.log(data[0])
 });
+
+// define map
 
 function createMap(layers) {
 
@@ -23,14 +26,45 @@ function createMap(layers) {
   
     }};
 
-    map.addSource('hurricane', {
-        type: 'geojson',
-        data: 'earthquakes.geojson'
-    });
-    map.addLayer({
-        id: 'hurricane',
-        source: 'earthquakes',
-        type: 'heatmap'
-    });
+    // map =
+
+    // map.addSource('hurricane', {
+    //     type: 'geojson',
+    //     data: 'csvconvert1.geojson'
+    // });
+    // map.addLayer({
+    //     id: 'hurricane',
+    //     source: 'hurricane',
+    //     type: 'heatmap'
+    // });
+
+    // var hurricane = new L.LayerGroup();
+
+    // var overlayMaps = {
+    //     "Temperature": data,
+    //     "Hurricane": hurricane
+    // };
+
+    var map = L.map("map", {
+        center: [40.7128, -74.0059],
+        zoom: 11
+      });
+
+    function gatherDataPoints(hurricane){
+
+        L.geoJson(hurricane).addTo(map);
+      };
+    
+      $.getJSON("convertcsv-small.geojson", gatherDataPoints);
+     
+     // $.getJSON("convertcsv2.geojson", gatherDataPoints);
+
+    //  //Add layer control to map
+    //  L.control.layers(baseMaps, overlayMaps, {
+    //     collapsed: false
+    // }).addTo(myMap);
+
+
+    //  legend.addTo(myMap);
 
     
