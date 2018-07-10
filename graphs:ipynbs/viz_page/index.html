@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" http-equiv="encoding">
+  <title>Global Temperatures</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script rel="stylesheet" type="text/css" src="{{ url_for( 'static', filename=" styles.css " ) }}"></script>
+
+  <body>
+    <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Global Climate Change</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+      <div class="collapse navbar-collapse" id="stat_type">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="./static/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./static/">Geography</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-md-0">
+          <input class="form-control" type="text" placeholder="Enter Country">
+          <button class="btn btn-light">Submit</button>
+        </form>
+      </div>
+    </nav>
+    <br>
+
+    <div class="jumbotron">
+      <div class="col-sm-8 mx-auto">
+        <h1>
+          Climate Change Visualizations
+        </h1>
+        <p>
+          Is there an observable weather trend over an "x" number of years? Are there any severe weather trends? How accurate are the predictions (will looking at weather from 100 years predict weather from 50 years later)? Data was pulled from: "
+          <a href="https://www.ncdc.noaa.gov/ibtracs/index.php?name=wmo-data">Berkeley Earth</a>
+        </p>
+        <div>
+          <p class="font-italic" style="font-size:0.9em">Javier Lopez, Matt Shuff, Jordan Tata, Abigail Vasquez, Jasmine (Lo) Winata.</p>
+        </div>
+
+        <!-- <div style="margin-top:25px">
+          <img src="{{ url_for('static', filename='img/pool.svg') }}" alt="" style="width:100px">
+        </div> -->
+      </div>
+    </div>
+    <br>
+    <div class="dropdown">
+      <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton">
+      Pick a Graph
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <select class="dropdown-item" id="#countryName"></select>
+      <!-- <option value="None" selected="Selected"></option> -->
+    </div>
+    </button>
+    </div>
+
+    <div class="container">
+      <a href='visualizations'>
+    <img src='/Users/mattshuff/Desktop/final_group_project/project-three/graphs:ipynbs/seabornalldata.png'height='800' width='1300'></a>
+      <break>
+        <a href='visualizations'>
+      <img src='/Users/mattshuff/Desktop/final_group_project/project-three/graphs:ipynbs/alldata.png'height='800' width='1300'></a>
+        <break>
+        <a href='visualizations'>
+    <img src='/Users/mattshuff/Desktop/final_group_project/project-three/graphs:ipynbs/50lat.png'height='800' width='1300'></a>
+        <break>
+          <a href='visualizations'>
+    <img src='/Users/mattshuff/Desktop/final_group_project/project-three/graphs:ipynbs/above:below50lat.png'height='700' width='1200'></a>
+          <break>
+            <a href='visualizations'>
+    <img src='/Users/mattshuff/Desktop/final_group_project/project-three/graphs:ipynbs/avgtempsforuschinajapan.png' height='700' width='1200'></a>
+    </div>
+    </div>
+
+    <!-- <section class="section">
+      <table class="table"> -->
+    <!-- <thead>
+              <tr>
+                  {% for col in columns %}
+                  <th>
+                      {{ col }}
+                  </th>
+                  {% endfor %}
+              </tr>
+          </thead>
+          <tbody>
+              {% for item in data %}
+              <tr>
+                  {% for col in columns %}
+                  <td>
+                      {{ item[col] }}
+                  </td>
+                  {% endfor %}
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table> -->
+    <!-- </section> -->
+</head>
+
+
+<script src={{ url_for( 'static', filename="logic.js" ) }}></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter2/1.4.6/crossfilter.min.js"></script>
+<script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dc/3.0.4/dc.js"></script>
+<script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+</body>
+
+</html>
+</body>
+
+</html>
