@@ -13,6 +13,9 @@ class Config(object):
 class ProductionConfig(Config):
     LOG_TO_STDOUT = 1
     SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URI", "sqlite:///" + fix_path(basedir, "db/yearlyTempAvg1800.sqlite"))
+    SQLALCHEMY_BINDS = {
+        "finalDB": "db/final.sqlite",
+        }
 
 
 class DevelopmentConfig(Config):
@@ -21,6 +24,10 @@ class DevelopmentConfig(Config):
     SQLALCHEMY_ECHO = 1
     TEMPLATES_AUTO_RELOAD = 1
     SQLALCHEMY_DATABASE_URI = os.getenv("DEV_DATABASE_URI", "sqlite:///" + fix_path(basedir, "db/yearlyTempAvg1800-dev.sqlite"))
+    SQLALCHEMY_BINDS = os.getenv("DEV_DATABASE_URI", "sqlite:///" + fix_path(basedir, "db/final-dev.sqlite"))
+    # SQLALCHEMY_BINDS = {
+    #     "finalDB": "db/final-dev.sqlite",
+    #     }
 
 
 config = {

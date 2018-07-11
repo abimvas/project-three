@@ -22,9 +22,15 @@ app.config.from_object(config[config_name])
 db.init_app(app)
 
 # Populate table if it doesn't exist
+
 with app.app_context():
     if not db.engine.dialect.has_table(db.engine, "temperatures"):
         Temps_Since_1800("db/yearlytempavg1800.csv", app.config["SQLALCHEMY_DATABASE_URI"])
+
+with app.app_context():
+	if not db.engine.dialect.has_table(db.engine, "locations"):
+		Temps_Since_1800("db/final.csv", app.config["SQLALCHEMY_BINDS"])
+
 
 
 #################################################
@@ -35,28 +41,29 @@ with app.app_context():
 def setup():
     # db.drop_all()
     db.create_all()
+    db.create_all(bind='finalDB')
 
 @app.route("/")
 def index():
 
-    # results = db.session.query(Temperature).filter(Temperature.Country != "").all()
-    # cols = column_names(Temperature)
+    results = db.session.query(Temperature.Country).distinct().all()
+    results = [c.Country for c in results]
+    print(results)
 
-    # avgTemps = [{col: getattr(row, col) for col in cols} for row in results]
-
-    # return render_template("index.html", data=avgTemps, columns=cols)
-    return render_template("index.html")
+    return render_template("index.html", countries=results)
 
 
 @app.route("/api/temperatures")
 def temperatures():
-	
+
 	return jsonify(get_data())
 
+
+@app.route("/countries")
 @app.route("/countries/<countryName>")
 def country_data(countryName):
 
-	return jsonify(temp_by_country()) 
+	return jsonify(temp_by_country(countryName)) 
 
 
 if __name__ == "__main__":

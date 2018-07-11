@@ -1,9 +1,16 @@
-
 table {
     height: 100%;
     width: 100%;
     padding: 0;
     margin: 0;
-    overflow: hidden;
+    overflow: auto;
+    position: fixed;
+}
+
+
+
+.dropdown-menu {
+    height: 200px;
+    overflow: auto;
     position: fixed;
 }
