@@ -21,7 +21,6 @@ html {
     opacity: 0.7;
 }
 
-.dropdown-toggle {background-color: darkgray;
-  color: black;
+.button {margin-left: 100;
 
 }

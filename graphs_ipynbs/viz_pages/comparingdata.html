@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script rel="stylesheet" type="text/css" src="../../styles.css"></script>
+  <link rel="stylesheet" href="../visuals.css">
+
 
   <body>
     <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
@@ -38,12 +39,8 @@
     <div class="jumbotron">
       <div class="col-sm-8 mx-auto">
         <h1>
-          Climate Change Visualizations
+          Comparing data trends between the World and Extreme Latitudes
         </h1>
-        <p>
-          Is there an observable weather trend over an "x" number of years? Are there any severe weather trends? How accurate are the predictions (will looking at weather from 100 years predict weather from 50 years later)? Data was pulled from: "
-          <a href="https://www.ncdc.noaa.gov/ibtracs/index.php?name=wmo-data">Berkeley Earth</a>
-        </p>
         <div>
           <p class="font-italic" style="font-size:0.9em">Javier Lopez, Matt Shuff, Jordan Tata, Abigail Vasquez, Jasmine (Lo) Winata.</p>
         </div>
@@ -53,36 +50,17 @@
         </div> -->
       </div>
     </div>
-    <br>
-    <div class="dropdown">
-        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Visualizations<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-            <li><a href="../comparingdata.html">All Average World Temps</a></li>
-            <li><a href="#">Artic World Temps</a></li>
-            <li><a href="#">US-Japan_China</a></li>
-            <li><a href="#">Arctic Trendline</a></li>
-            <li><a href="#">Arctic Tableau Table</a></li>
-            </ul>
+
+    <div class='box'>
+      <a href='comparingdata.html'>
+    <img src='../images/alldata.png'height='600' width='700'></a>
+      <a href='comparingdata.html'>
+      <img src='../images/arcticoverall.png'height='600' width='700'></a>
     </div>
 
-    <div class="container">
-      <a href='visualizations'>
-    <img src='../images/alldata.png'height='800' width='1300'></a>
-      <break>
-        <!-- Start of Visualizations imageNav Area -->
-        <section id="imageNav-area">
-          <div class="imageNav-content">
-            <h2 class="imageNav-header">Visualizations</h2>
-            <hr/>
-            <div id="images">
-              <a href="../comparingdata.html"><img src="../images/seaalldata.png" alt="All Average World Temps" class="imageNav-photo" height='150' width='150'></a>
-              <a href="visualizations/humidity.html"><img src="assets/images/Fig2.png" alt="Latitude vs. Humidity" class="imageNav-photo"></a>
-              <a href="visualizations/cloudiness.html"><img src="assets/images/Fig3.png" alt="Latitude vs. Cloudiness" class="imageNav-photo"></a>
-              <a href="visualizations/wind.html"><img src="assets/images/Fig4.png" alt="Latitude vs. Wind Speed" class="imageNav-photo"></a>
-            </div>
-          </div>
-        </section>
-    </div>
+    <!--Javier's Code for Tableau-->
+
+    <iframe src="https://public.tableau.com/profile/javier.lopez.79#!/vizhome/ClimateChange_31/Dashboard?publish=yes:showVizHome=no&" width="1280" height="768">
     </div>
 
     <!-- <section class="section">
