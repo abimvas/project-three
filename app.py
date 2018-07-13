@@ -25,16 +25,16 @@ db.init_app(app)
 # Populate table if it doesn't exist
 
 # with app.app_context():
-    
-    
+
+
 
 #     tables = ['temperatures', 'locations']
 #     csvfiles = {'db/yearlytempavg1800.csv': app.config["SQLALCHEMY_DATABASE_URI"],
 #             'db/avgGlobalTempsClean.csv': app.config["SQLALCHEMY_BINDS"]}
 #     routes = create_table(**csvfiles)
-    
 
-#     for _t in tables, (csvfile, db_uri in csvfiles): 
+
+#     for _t in tables, (csvfile, db_uri in csvfiles):
 #     	if not db.engine.dialect.has_table(db.engine, _t):
 # 		    create_table(routes)
 
@@ -71,11 +71,21 @@ def temperatures():
 	return jsonify(get_data())
 
 
+@app.route("/visualizations")
+def visualizations():
+
+    """Return the viz page."""
+
+    return render_template('visualizations.html')
+
+
+
+
 @app.route("/countries")
 @app.route("/countries/<countryName>")
 def country_data(countryName):
 
-	return jsonify(temp_by_country(countryName)) 
+	return jsonify(temp_by_country(countryName))
 
 
 if __name__ == "__main__":
