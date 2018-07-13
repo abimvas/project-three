@@ -12,12 +12,7 @@ from datetime import datetime
 
 
 db = SQLAlchemy()
-# db.reflect(bind="finalDB")
 
-# d = DATE(
-#     storage_format = "%(year)04d-%(month)02d-%(day)02d",
-#     regexp = re.compile("^[0-9]{4}-(((0[13578]|(10|12))-(0[1-9]|[1-2][0-9]|3[0-1]))|(02-(0[1-9]|[1-2][0-9]))|((0[469]|11)-(0[1-9]|[1-2][0-9]|30)))$")
-#     )
 
 base_path = path.abspath(path.dirname(__file__))
 
@@ -74,14 +69,13 @@ class Temperature(Base01):
 
 
 class Location(Base02):
-    __bind_key__ = "finalDB"
+    # __bind_key__ = "finalDB"
 
     __table_args__ = {'sqlite_autoincrement': True}
 
     __tablename__ = "locations"
 
     event_id = db.Column(db.Integer, primary_key=True)
-    # Date = db.Column(db.Text, default=db.func.current_timestamp())
     Yr = db.Column(db.Integer)
     M = db.Column(db.Integer)
     D = db.Column(db.Integer)
@@ -89,16 +83,15 @@ class Location(Base02):
     Country = db.Column(db.Text)
     AvgTemp = db.Column(db.Float)
     AvgTUncert = db.Column(db.Float)
-    Lat = db.Column(db.Float)
+    Lat = db.Column(db.Text)
     Lat_Coord = db.Column(db.Float) 
     Lat_Dir = db.Column(db.Text)
-    Lon = db.Column(db.Float)
+    Lon = db.Column(db.Text)
     Lng_Coord = db.Column(db.Float)
     Lng_Dir = db.Column(db.Text)
 
     def __repr__(self):
         return '<City %r>' % (self.City)
-
 
 
 def get_data():
@@ -125,36 +118,6 @@ def temp_by_country(countryName):
 
     return results
 
-
-# def create_table(name, csvfile, db_uri):
-#     engine = create_engine(db_uri, echo=True)
-#     conn = engine.connect()
-#     trans = conn.begin()
-#     db.metadata.create_all(bind=engine)
-
-
-#     with open(fix_path(base_path, csvfile), mode="r") as p:
-#         csv_data = csv.DictReader(p)
-        
-         
-#         for csvfile in csvfiles:
-#         	try:
-
-#                 for row in csv_data:
-                    
-#                     conn.execute(config.__table__.insert(), row)
-#                 elif csvfile == 'db/avgGlobalTempsClean.csv':
-#                         conn.execute(Location.__table__.insert(), row)
-#             trans.commit()
-#             except:
-#                 trans.rollback()
-#                 raise
-#     tables = ['temperatures', 'locations']
-#     for _t in tables: create_table(_t, metadata)
-
-
-
-
 def create_table(csvfile, db_uri):
     engine = create_engine(db_uri, echo=True)
     conn = engine.connect()
@@ -163,10 +126,21 @@ def create_table(csvfile, db_uri):
 
     with open(fix_path(base_path, csvfile), mode="r") as p:
         csv_data = csv.DictReader(p)
-        try:
-            for row in csv_data:
-                conn.execute(Temperature.__table__.insert(), row)
-            trans.commit()
-        except:
-            trans.rollback()
-            raise
+        if csvfile.endswith("yearlytempavg1800.csv"):
+            try:
+                for row in csv_data:
+                    conn.execute(Temperature.__table__.insert(), row)
+                trans.commit()
+            except:
+                trans.rollback()
+                raise
+        else:
+            try:
+                for row in csv_data:
+                    row["Date"] = datetime.strptime(row["Date"], "%Y-%m-%d")
+                    conn.execute(Location.__table__.insert(), row)
+                trans.commit()
+            except Exception as e:
+                print(e)
+                trans.rollback()
+                raise

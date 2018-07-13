@@ -22,10 +22,10 @@ class DevelopmentConfig(Config):
     FLASK_DEBUG = 1
     SQLALCHEMY_ECHO = 1
     TEMPLATES_AUTO_RELOAD = 1
-    SQLALCHEMY_DATABASE_URI = os.getenv("DEV_DATABASE_URI", "sqlite:///" + fix_path(basedir, "db/yearlyTempAvg1800-dev.sqlite"))
-    SQLALCHEMY_BINDS = {
-        "finalDB": "sqlite:///" + fix_path(basedir, "db/final-dev.sqlite"),
-        }
+    SQLALCHEMY_DATABASE_URI = os.getenv("DEV_DATABASE_URI", "sqlite:///" + fix_path(basedir, "db/final-dev.sqlite"))
+    # SQLALCHEMY_BINDS = {
+        # "finalDB": "sqlite:///" + fix_path(basedir, "db/final-dev.sqlite"),
+        # }
 
 
 
