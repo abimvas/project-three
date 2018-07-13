@@ -2,7 +2,7 @@
 ## 1. Title: ##
 Predicting Weather Trends
 
-Presentation Slide Show: https://docs.google.com/presentation/d/1gLVFk-mljHReWyGx7fDnejr074EaqaEmxw39Wy_o6Z4/edit?usp=sharing
+Heroku App: https://hurricane-and-weather.herokuapp.com/
 
 ## 2. Team Members: ##
 Javier Lopez, Matt Shuff, Jordan Tata, Abigail Vasquez, Jasmine (Lo) Winata
