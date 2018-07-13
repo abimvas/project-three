@@ -1,0 +1,28 @@
+a {
+  left: 900;
+}
+
+.box {
+  display: inline-block;
+  margin-left: 0;
+  margin-right: auto;
+  width:90%
+  padding-bottom: 56.25%;
+  position: relative;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}

@@ -1,0 +1,291 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 79.8,-8.6 ]
+    },
+    "properties": {
+    "Serial_Num":"1848011S09080",
+    "year":1848,
+    "Num":2,
+    "Basin":" SI",
+    "Name":"XXXX848003",
+    "ISO_time":"1848-01-11 06:00:00",
+    "Nature":" NR",
+    "Wind(WMO)":0,
+    "Pres(WMO)":0,
+    "Center":"reunion",
+    "Wind(WMO) Percentile":-100,
+    "Pres(WMO) Percentile":-100,
+    "AverageTemperatureF":58.42422642235722
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 78.9,-9 ]
+    },
+    "properties": {
+    "Serial_Num":"1848011S09080",
+    "year":1848,
+    "Num":2,
+    "Basin":" SI",
+    "Name":"XXXX848003",
+    "ISO_time":"1848-01-12 06:00:00",
+    "Nature":" NR",
+    "Wind(WMO)":0,
+    "Pres(WMO)":0,
+    "Center":"reunion",
+    "Wind(WMO) Percentile":-100,
+    "Pres(WMO) Percentile":-100,
+    "AverageTemperatureF":58.42422642235722
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 73.2,-10.4 ]
+    },
+    "properties": {
+    "Serial_Num":"1848011S09080",
+    "year":1848,
+    "Num":2,
+    "Basin":" SI",
+    "Name":"XXXX848003",
+    "ISO_time":"1848-01-13 06:00:00",
+    "Nature":" NR",
+    "Wind(WMO)":0,
+    "Pres(WMO)":0,
+    "Center":"reunion",
+    "Wind(WMO) Percentile":-100,
+    "Pres(WMO) Percentile":-100,
+    "AverageTemperatureF":58.42422642235722
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 69.9,-12.8 ]
+    },
+    "properties": {
+    "Serial_Num":"1848011S09080",
+    "year":1848,
+    "Num":2,
+    "Basin":" SI",
+    "Name":"XXXX848003",
+    "ISO_time":"1848-01-14 06:00:00",
+    "Nature":" NR",
+    "Wind(WMO)":0,
+    "Pres(WMO)":0,
+    "Center":"reunion",
+    "Wind(WMO) Percentile":-100,
+    "Pres(WMO) Percentile":-100,
+    "AverageTemperatureF":58.42422642235722
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 68.9,-13.9 ]
+    },
+    "properties": {
+    "Serial_Num":"1848011S09080",
+    "year":1848,
+    "Num":2,
+    "Basin":" SI",
+    "Name":"XXXX848003",
+    "ISO_time":"1848-01-15 06:00:00",
+    "Nature":" NR",
+    "Wind(WMO)":0,
+    "Pres(WMO)":0,
+    "Center":"reunion",
+    "Wind(WMO) Percentile":-100,
+    "Pres(WMO) Percentile":-100,
+    "AverageTemperatureF":58.42422642235722
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 67.7,-15.3 ]
+    },
+    "properties": {
+    "Serial_Num":"1848011S09080",
+    "year":1848,
+    "Num":2,
+    "Basin":" SI",
+    "Name":"XXXX848003",
+    "ISO_time":"1848-01-16 06:00:00",
+    "Nature":" NR",
+    "Wind(WMO)":0,
+    "Pres(WMO)":0,
+    "Center":"reunion",
+    "Wind(WMO) Percentile":-100,
+    "Pres(WMO) Percentile":-100,
+    "AverageTemperatureF":58.42422642235722
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 67,-16.5 ]
+    },
+    "properties": {
+    "Serial_Num":"1848011S09080",
+    "year":1848,
+    "Num":2,
+    "Basin":" SI",
+    "Name":"XXXX848003",
+    "ISO_time":"1848-01-17 06:00:00",
+    "Nature":" NR",
+    "Wind(WMO)":0,
+    "Pres(WMO)":0,
+    "Center":"reunion",
+    "Wind(WMO) Percentile":-100,
+    "Pres(WMO) Percentile":-100,
+    "AverageTemperatureF":58.42422642235722
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 67.4,-18 ]
+    },
+    "properties": {
+    "Serial_Num":"1848011S09080",
+    "year":1848,
+    "Num":2,
+    "Basin":" SI",
+    "Name":"XXXX848003",
+    "ISO_time":"1848-01-18 06:00:00",
+    "Nature":" NR",
+    "Wind(WMO)":0,
+    "Pres(WMO)":0,
+    "Center":"reunion",
+    "Wind(WMO) Percentile":-100,
+    "Pres(WMO) Percentile":-100,
+    "AverageTemperatureF":58.42422642235722
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 69.8,-20.6 ]
+    },
+    "properties": {
+    "Serial_Num":"1848011S09080",
+    "year":1848,
+    "Num":2,
+    "Basin":" SI",
+    "Name":"XXXX848003",
+    "ISO_time":"1848-01-19 06:00:00",
+    "Nature":" NR",
+    "Wind(WMO)":0,
+    "Pres(WMO)":0,
+    "Center":"reunion",
+    "Wind(WMO) Percentile":-100,
+    "Pres(WMO) Percentile":-100,
+    "AverageTemperatureF":58.42422642235722
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 72,-22.8 ]
+    },
+    "properties": {
+    "Serial_Num":"1848011S09080",
+    "year":1848,
+    "Num":2,
+    "Basin":" SI",
+    "Name":"XXXX848003",
+    "ISO_time":"1848-01-20 06:00:00",
+    "Nature":" NR",
+    "Wind(WMO)":0,
+    "Pres(WMO)":0,
+    "Center":"reunion",
+    "Wind(WMO) Percentile":-100,
+    "Pres(WMO) Percentile":-100,
+    "AverageTemperatureF":58.42422642235722
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 75.8,-27.2 ]
+    },
+    "properties": {
+    "Serial_Num":"1848011S09080",
+    "year":1848,
+    "Num":2,
+    "Basin":" SI",
+    "Name":"XXXX848003",
+    "ISO_time":"1848-01-21 06:00:00",
+    "Nature":" NR",
+    "Wind(WMO)":0,
+    "Pres(WMO)":0,
+    "Center":"reunion",
+    "Wind(WMO) Percentile":-100,
+    "Pres(WMO) Percentile":-100,
+    "AverageTemperatureF":58.42422642235722
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 57.4,-15.2 ]
+    },
+    "properties": {
+    "Serial_Num":"1848011S15057",
+    "year":1848,
+    "Num":3,
+    "Basin":" SI",
+    "Name":"XXXX848002",
+    "ISO_time":"1848-01-11 06:00:00",
+    "Nature":" NR",
+    "Wind(WMO)":0,
+    "Pres(WMO)":0,
+    "Center":"reunion",
+    "Wind(WMO) Percentile":-100,
+    "Pres(WMO) Percentile":-100,
+    "AverageTemperatureF":58.42422642235722
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 56.6,-15.8 ]
+    },
+    "properties": {
+    "Serial_Num":"1848011S15057",
+    "year":1848,
+    "Num":3,
+    "Basin":" SI",
+    "Name":"XXXX848002",
+    "ISO_time":"1848-01-12 06:00:00",
+    "Nature":" NR",
+    "Wind(WMO)":0,
+    "Pres(WMO)":0,
+    "Center":"reunion",
+    "Wind(WMO) Percentile":-100,
+    "Pres(WMO) Percentile":-100,
+    "AverageTemperatureF":58.42422642235722
+    }
+  }
+  ]
+ }
