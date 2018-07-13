@@ -114,7 +114,7 @@ function renderTable() {
 
 		function assignOptions(textArray, selector) {
 			for (var i = 0; i < textArray.length; i++) {
-				var currentOption = document.createElement('optionB');
+				var currentOption = document.createElement('select');
 				currentOption.txt = textArray[i];
 				selector.appendChild(currentOption);
 			}

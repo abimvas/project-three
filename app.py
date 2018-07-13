@@ -37,13 +37,13 @@ db.init_app(app)
 #     for _t in tables, (csvfile, db_uri in csvfiles): 
 #     	if not db.engine.dialect.has_table(db.engine, _t):
 # 		    create_table(routes)
-		    
+
 with app.app_context():
     if not db.engine.dialect.has_table(db.engine, "temperatures"):
-        Temps_Since_1800("db/yearlytempavg1800.csv", app.config["SQLALCHEMY_DATABASE_URI"])
+        create_table("db/yearlytempavg1800.csv", app.config["SQLALCHEMY_DATABASE_URI"])
 
     elif not db.engine.dialect.has_table(db.engine, "locations"):
-        Temps_Since_1800("db/final.csv", app.config["SQLALCHEMY_BINDS"])
+        create_table("db/avgGlobalTempsClean.csv", app.config["SQLALCHEMY_BINDS"])
 
 #################################################
 # Routes
