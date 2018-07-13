@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, json
+from flask import Flask, render_template, jsonify, json, request
 from models import *
 from sqlalchemy.orm import Session
 from utils import *
@@ -6,6 +6,7 @@ from config import config
 import os
 import numpy as np
 import plotly
+import csv
 
 #################################################
 # Application Config
@@ -23,15 +24,26 @@ db.init_app(app)
 
 # Populate table if it doesn't exist
 
+# with app.app_context():
+    
+    
+
+#     tables = ['temperatures', 'locations']
+#     csvfiles = {'db/yearlytempavg1800.csv': app.config["SQLALCHEMY_DATABASE_URI"],
+#             'db/avgGlobalTempsClean.csv': app.config["SQLALCHEMY_BINDS"]}
+#     routes = create_table(**csvfiles)
+    
+
+#     for _t in tables, (csvfile, db_uri in csvfiles): 
+#     	if not db.engine.dialect.has_table(db.engine, _t):
+# 		    create_table(routes)
+		    
 with app.app_context():
     if not db.engine.dialect.has_table(db.engine, "temperatures"):
         Temps_Since_1800("db/yearlytempavg1800.csv", app.config["SQLALCHEMY_DATABASE_URI"])
 
-with app.app_context():
-	if not db.engine.dialect.has_table(db.engine, "locations"):
-		Temps_Since_1800("db/final.csv", app.config["SQLALCHEMY_BINDS"])
-
-
+    elif not db.engine.dialect.has_table(db.engine, "locations"):
+        Temps_Since_1800("db/final.csv", app.config["SQLALCHEMY_BINDS"])
 
 #################################################
 # Routes
@@ -39,7 +51,7 @@ with app.app_context():
 
 @app.before_first_request
 def setup():
-    # db.drop_all()
+    db.drop_all()
     db.create_all()
     db.create_all(bind='finalDB')
 

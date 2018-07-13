@@ -110,7 +110,7 @@ function renderTable() {
 		};
 		var innerContainer = document.querySelector('[data-num="0"'),
 			plotEl = innerContainer.querySelector('.table'),
-			getCountry = innerContainer.querySelector('.dropdown-item');
+			getCountry = innerContainer.querySelector('.custom-select custom-select-sm');
 
 		function assignOptions(textArray, selector) {
 			for (var i = 0; i < textArray.length; i++) {
