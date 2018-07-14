@@ -3,13 +3,13 @@
 
 <head>
   <meta charset="UTF-8" http-equiv="encoding">
-  <title>Global Temperatures</title>
+  <title>Linear Regression</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <link rel="stylesheet" href="/static/visuals.css">
+  <link rel="stylesheet" href="../visuals.css">
 </head>
 
 
@@ -23,7 +23,7 @@
     <div class="collapse navbar-collapse" id="stat_type">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/visualizations">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./static/">Geography</a>
@@ -43,7 +43,7 @@
   <div class="jumbotron">
     <div class="col-sm-8 mx-auto">
       <h1>
-          Comparing Temperature and Weather Trends using Tableau
+          Predicting Future Temperatures using Machine Learning
         </h1>
       <div>
         <p class="font-italic" style="font-size:0.9em">Javier Lopez, Matt Shuff, Jordan Tata, Abigail Vasquez, Jasmine (Lo) Winata.</p>
@@ -55,16 +55,28 @@
     </div>
   </div>
 
-  <a href='tableau.html'>
-    <img src='/static/images/above50tab.png'height='900' width='1400' class="center"></a>
-  <p> This tableau chart shows the temperature trends for the countries listed at points above or below 50 degrees latitude.
-  </p>
-  <!--Javier's Code for Tableau-->
-  <div class='center'>
-    <iframe src="https://public.tableau.com/profile/javier.lopez.79#!/vizhome/ClimateChange_31/Dashboard?publish=yes:showVizHome=no&" width="1280" height="768">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <a href='../static/images/model.jpg'>
+        <img src='../static/images/model.jpg'></a>
+      </div>
+      <div class="col-md-6">
+        <h2>Machine Learning</h1>
+        <p>For this dataset we used a Linear Regression model to predict future tempature. We originally plotted the year against
+          the average temperature in degrees farenheit and found that there was a positive relationship as the year increases, the
+          average temperature also increases.
+        </p>
+        <img src="../static/images/year_temp.jpg" height="200px" width="300px"></img>
+        <p>Jupyter Notebook: <a href="/linear_code" target="_blank">linear_regression.ipynb</a></p>
+        <p>After creating a Linear Regression model we were able to see a small increase in temperature over time and confirmed
+          that over time the global average temperature increases.
+        </p>
+        
+      </div> 
     </div>
-    <p> This iframe element shows a tableau graph of Hurricane paths registered from 1950 to 2013. You can see an increase in hurricane activity over time.
-    </p>
+  </div>
+ 
 
 
 

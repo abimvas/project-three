@@ -85,6 +85,16 @@ def tableau():
 
 	return render_template("tableau.html")
 
+@app.route("/linear")
+def linear():
+
+	return render_template("linear.html")
+
+@app.route("/linear_code")
+def linear_code():
+
+	return render_template("linear_regression.html")
+
 
 @app.route("/Additional")
 def Additional():
