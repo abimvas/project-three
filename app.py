@@ -74,6 +74,26 @@ def visualizations():
 	return render_template("visualizations.html")
 
 
+@app.route("/comparingdata")
+def comparing():
+
+	return render_template("comparingdata.html")
+
+
+@app.route("/tableau")
+def tableau():
+
+	return render_template("tableau.html")
+
+
+@app.route("/Additional")
+def Additional():
+
+	return render_template("Additional.html")
+
+
+
+
 @app.route("/countries")
 @app.route("/countries/<countryName>")
 def country_data(countryName):
